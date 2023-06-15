@@ -12,6 +12,7 @@ body {
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -25,6 +26,7 @@ main {
     width: 50vw;
     max-width: 100%;
     padding: 5%;
+    border-radius: 5px;
 }
 
 .states {
@@ -67,6 +69,44 @@ main {
     border: none;
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.tasks {
+    margin-top: 5vh;
+    width: 50vw;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.tasks-title {
+    border-bottom: 3px solid #e5bcbb;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tasks-title__text {
+    display: block;
+}
+
+.tasks-btn {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #c86e6e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dots {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
 }
 
 @media screen and (max-width: 700px) {
