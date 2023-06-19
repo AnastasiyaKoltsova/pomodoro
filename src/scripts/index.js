@@ -49,8 +49,9 @@ function startTimer() {
     timer = setInterval(function() {
         timerDisplay.innerHTML = getReadableTime(timeInSeconds);
         timeInSeconds--;
-        if (timeInSeconds < 0) {
+        if (timeInSeconds <= 0) {
             clearInterval(timer);
+            startButton.innerHTML = 'START';
             if (statusOfTimer === 'pomodoro') {
                 currentPomodoroCount ++;
                 if (currentPomodoroCount === maxPomodoroCount) {

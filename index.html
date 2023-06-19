@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/normalize.css" type="text/css">
-    <link rel="stylesheet" href="./styles/styles.css" type="text/css">
+    <link rel="stylesheet" href="./src/assets/styles/normalize.css" type="text/css">
+    <link rel="stylesheet" href="./src/assets/styles/style.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
     <!-- подключить нормально шрифты -->
+    <link rel="shortcut icon" href="./src/assets/icons/favicon.png" type="image/x-icon">
     <title>Pomodoro</title>
 </head>
 <body>
@@ -29,19 +30,51 @@
                 <button type="submit" class="switch">START</button>
             </div>
             <div class="message">
-                <div class="message-number"></div>
-                <div class="message-text"></div>
+                <div class="message-number">#1</div>
+                <div class="message-text">Time to focus!</div>
             </div>
             <div class="tasks">
                 <div class="tasks-title">
                     <p class="tasks-title__text">Tasks</p>
                     <button class="tasks-btn">
-                        <img src="./assets/icons/dots.png" alt="More options" class="dots"></img>
+                        <img src="./src/assets/icons/dots.png" alt="More options" class="dots"></img>
                     </button>
+                </div>
+                
+                <div class="tasks-list hidden">
+                    <!-- <div class="tasks-list__item hidden">
+                        <div class="tasks-list__item-color"></div>
+                        <img class="tasks-list__item-icon" src="./src/assets/icons/check.png">
+                        <div class="tasks-list__item-task"></div>
+                        <div class="tasks-list__item-count">0/1</div>
+                        <button class="tasks-list__item-btn">
+                            <img src="./src/assets/icons/dots.png" alt="More options" class="dots"></img>
+                        </button>
+                    </div> -->
+                </div>
+
+                <div class="tasks-add">
+                    <button class="tasks-add__btn">
+                        <span class="tasks-add__btn__icon"></span>
+                        Add Task
+                    </button>
+                </div>
+                
+                <div class="tasks-description hidden">
+                    <div class="tasks-description__settings">
+                        <input type="text" placeholder="What are you working on?" class="tasks-description__settings-input-task">
+                        <div class="tasks-description__settings-text">Est Pomodoros</div>
+                        <input type="number" placeholder="1" class="tasks-description__settings-input-number"></input>
+                    </div>
+                    <div class="tasks-description__submit">
+                        <button class="tasks-cancel">Cancel</button>
+                        <button class="tasks-save">Save</button>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
-    <script src="./index.js"></script>
+    <script src="./src/scripts/index.js"></script>
+    <script src="./src/scripts/addTask.js"></script>
 </body>
 </html>

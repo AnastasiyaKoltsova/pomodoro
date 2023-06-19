@@ -1,0 +1,291 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ba4849;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.wrapper {
+    padding: 0 5vw 10vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pomodoro {
+    background-color: #c25c5c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    width: 50vw;
+    max-width: 90%;
+    padding: 5%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.states {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 4vw;
+}
+
+.btn-pomodoro,
+.short-break,
+.long-break {
+    color: #fff;
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    width: auto;
+    padding: 5px 12px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.btn-pomodoro {
+    background-color: #ba4849;
+}
+
+.timer {
+    font-size: 6rem;
+    font-weight: bold;
+}
+
+.switch {
+    color:#ba4849;
+    background-color: #fff;
+    width: 40%;
+    height: 7vh;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5%;
+    padding-top: 5%;
+}
+
+.tasks {
+    margin-top: 5vh;
+    width: 50vw;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.tasks-title {
+    border-bottom: 2px solid #e5bcbb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks-title__text {
+    display: block;
+    font-weight: 800;
+}
+
+.tasks-btn {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #c86e6e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dots {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+}
+
+.tasks-add {
+    padding: 5% 0;
+}
+
+.tasks-add__btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #ad4343;
+    border: 2px dashed #e6c2c1;
+    border-radius: 5px;
+    color: #e6c2c1;
+    padding: 5%;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.tasks-add__btn__icon {
+    width: 20px;
+    height: 20px;
+    background-image: url('./../icons/plus.png');
+    background-repeat: no-repeat;
+    margin-right: 5px;
+}
+
+.tasks-list {
+    margin-top: 10%;
+}
+
+.tasks-list__item {
+    width: 50vw;
+    height: 8vh;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 7px 1fr 6fr 1fr 1fr;
+    color: #555;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.tasks-list__item:first-of-type {
+    margin-top: -5%;
+}
+
+.tasks-list__item-color {
+    background-color: #222;
+    height: 100%;
+}
+
+.tasks-list__item-icon {
+    display: inline-block;
+    margin-left: 35%;
+}
+
+.tasks-list__item-count {
+    font-weight: 600;
+    opacity: 50%;
+}
+
+.tasks-list__item-btn {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dots {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+}
+
+.tasks-description {
+    width: 50vw;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.tasks-description__settings {
+    padding: 5%;
+}
+
+.tasks-description__settings-input-task {
+    width: 90%;
+    border: none;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.2em;
+    outline: none;
+    color: #555;
+    margin-bottom: 5%;
+}
+
+.tasks-description__settings-input-task::placeholder {
+    color: #ddd;
+}
+
+.tasks-description__settings-text {
+    color: #555;
+    font-weight: 700;
+    margin-bottom: 2.5%;
+}
+
+.tasks-description__settings-input-number {
+    width: 20%;
+    border: none;
+    font-weight: 800;
+    outline: none;
+    color: #555;
+    background-color: #efefef;
+    padding: 2%;
+    border-radius: 5%;
+}
+
+.tasks-description__submit {
+    background-color: #efefef;
+    padding: 3%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5%;
+}
+
+.tasks-cancel {
+    border: none;
+    color: #555;
+    opacity: 60%;
+    font-weight: 800;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.tasks-save {
+    border: none;
+    background-color: #3a3a3a;
+    color: #fff;
+    font-size: 0.9em;
+    cursor: pointer;
+    padding: 2% 5%;
+    border-radius: 5%;
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .wrapper {
+        padding: 0 5vw;
+    }
+
+    .pomodoro {
+        width: 80%;
+        max-width: 100%;
+    }
+}
