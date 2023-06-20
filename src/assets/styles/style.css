@@ -210,6 +210,7 @@ main {
     border-radius: 5px;
     overflow: hidden;
     background-color: #fff;
+    margin-top: 5%;
 }
 
 .tasks-description__settings {
@@ -251,9 +252,20 @@ main {
 .tasks-description__submit {
     background-color: #efefef;
     padding: 3%;
-    display: flex;
-    justify-content: flex-end;
-    gap: 5%;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    gap: 1%;
+}
+
+.tasks-delete {
+    border: none;
+    color: #555;
+    opacity: 60%;
+    font-weight: 800;
+    font-size: 0.9em;
+    cursor: pointer;
+    text-align: start;
+    visibility: hidden;
 }
 
 .tasks-cancel {

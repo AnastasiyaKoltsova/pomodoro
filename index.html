@@ -42,15 +42,6 @@
                 </div>
                 
                 <div class="tasks-list hidden">
-                    <!-- <div class="tasks-list__item hidden">
-                        <div class="tasks-list__item-color"></div>
-                        <img class="tasks-list__item-icon" src="./src/assets/icons/check.png">
-                        <div class="tasks-list__item-task"></div>
-                        <div class="tasks-list__item-count">0/1</div>
-                        <button class="tasks-list__item-btn">
-                            <img src="./src/assets/icons/dots.png" alt="More options" class="dots"></img>
-                        </button>
-                    </div> -->
                 </div>
 
                 <div class="tasks-add">
@@ -62,11 +53,12 @@
                 
                 <div class="tasks-description hidden">
                     <div class="tasks-description__settings">
-                        <input type="text" placeholder="What are you working on?" class="tasks-description__settings-input-task">
+                        <input type="text" placeholder="What are you working on?" maxlength="50" class="tasks-description__settings-input-task">
                         <div class="tasks-description__settings-text">Est Pomodoros</div>
-                        <input type="number" placeholder="1" class="tasks-description__settings-input-number"></input>
+                        <input type="number" placeholder="1" min="1" class="tasks-description__settings-input-number"></input>
                     </div>
                     <div class="tasks-description__submit">
+                        <button class="tasks-delete">Delete</button>
                         <button class="tasks-cancel">Cancel</button>
                         <button class="tasks-save">Save</button>
                     </div>
