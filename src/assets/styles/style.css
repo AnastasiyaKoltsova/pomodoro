@@ -1,3 +1,21 @@
+@font-face {
+    font-weight: 400;
+    font-family: 'Nunito';
+    src: url('./../fonts/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-weight: 600;
+    font-family: 'Nunito';
+    src: url('./../fonts/Nunito-SemiBold.ttf');
+}
+
+@font-face {
+    font-weight: 800;
+    font-family: 'Nunito';
+    src: url('./../fonts/Nunito-ExtraBold.ttf');
+}
+
 * {
     box-sizing: border-box;
 }
@@ -63,10 +81,17 @@ main {
     font-weight: bold;
 }
 
+.pomodoro-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .switch {
     color:#ba4849;
     background-color: #fff;
     width: 40%;
+    margin-left: 30%;
     height: 7vh;
     font-size: 1.2rem;
     font-weight: bold;
@@ -74,6 +99,19 @@ main {
     border: none;
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.reset-btn {
+    width: 10%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.reset-btn img {
+    width: 32px;
+    display: block;
+    object-fit: cover;
 }
 
 .message {
@@ -142,8 +180,8 @@ main {
 }
 
 .tasks-add__btn__icon {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     background-image: url('./../icons/plus.png');
     background-repeat: no-repeat;
     margin-right: 5px;

@@ -24,10 +24,37 @@ function createTaskElement(task, count) {
 <div class="tasks-list__item-task">${task}</div>
 <div class="tasks-list__item-count">0/${count}</div>
 <button class="tasks-list__item-btn">
-    <img src="./src/assets/icons/dots.png" alt="More options" class="dots"></img>
+    <img src="./src/assets/icons/dots-grey.png" alt="More options" class="dots"></img>
 </button>
 `;
-
+    const editBtn = newTask.querySelector('.tasks-list__item-btn');
+    editBtn.addEventListener('click', function() {
+        tasksDescription.classList.remove('hidden');
+        const saveBtn = tasksDescription.querySelector('.tasks-save');
+        const editTask = tasksDescription.querySelector('.tasks-description__settings-input-task');
+        const taskElement = newTask.querySelector('.tasks-list__item-task');
+        editTask.value = taskElement.textContent;
+        const deleteBtn = tasksDescription.querySelector('.tasks-delete');
+        deleteBtn.style.visibility = 'visible';
+        deleteBtn.addEventListener('click', function() {
+            const savedTasks = getSavedTasks();
+            const index = savedTasks.findIndex(savedTask => savedTask.task === taskElement.textContent);
+            savedTasks.splice(index, 1);
+            saveTasks(savedTasks);
+            newTask.remove();
+            tasksDescription.classList.add('hidden');
+        });
+        saveBtn.addEventListener('click', function() {
+            const editedTask = editTask.value.trim();
+            if (!editedTask) return;
+            const savedTasks = getSavedTasks();
+            const index = savedTasks.findIndex(savedTask => savedTask.task === taskElement.textContent);
+            savedTasks[index].task = editedTask;
+            saveTasks(savedTasks);
+            taskElement.textContent = editedTask;
+            tasksDescription.classList.add('hidden');
+        });
+    });
     return newTask;
 }
 
@@ -42,8 +69,6 @@ function loadTasks() {
         tasksList.classList.remove('hidden');
     }
 }
-
-loadTasks();
 
 setTaskWindow.classList.add('hidden'); 
 
@@ -77,3 +102,5 @@ saveBtn.addEventListener('click', function() {
     
     addTaskBtn.classList.remove('hidden');
 });
+
+loadTasks();

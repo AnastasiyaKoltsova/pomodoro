@@ -3,9 +3,13 @@ const timerDisplay = document.querySelector('.timer');
 const pomodoroButton = document.querySelector('.btn-pomodoro');
 const shortBreakButton = document.querySelector('.short-break');
 const longBreakButton = document.querySelector('.long-break');
+const resetButton = document.querySelector('.reset-btn');
+const addTaskBtn = document.querySelector('.tasks-add__btn');
+
 const pomodoroTime = 1500;
 const shortBreakTime = 300;
 const longBreakTime = 900;
+
 const colors = {
     pomodoro: {
         backgroundColor: '#ba4849',
@@ -13,7 +17,12 @@ const colors = {
         switchColor: '#ba4849',
         pomodoroButtonColor: '#a95250',
         shortBreakButtonColor: 'transparent',
-        longBreakButtonColor: 'transparent'
+        longBreakButtonColor: 'transparent',
+        addTaskBtnBackground: '#ad4343',
+        addTaskBtnBorder: '#ca8685',
+        addTaskBtnText: '#e6c2c1',
+        addTaskLine: '#e5bcbb',
+        addTaskBtnSetting: '#c86e6e'
     },
     short: {
         backgroundColor: '#38858a',
@@ -21,7 +30,12 @@ const colors = {
         switchColor: '#38858a',
         pomodoroButtonColor: 'transparent',
         shortBreakButtonColor: '#467f82',
-        longBreakButtonColor: 'transparent'
+        longBreakButtonColor: 'transparent',
+        addTaskBtnBackground: '#347b80',
+        addTaskBtnBorder: '#7fa8ab',
+        addTaskBtnText: '#bed4d5',
+        addTaskLine: '#b8d0d2',
+        addTaskBtnSetting: '#639ca0'
     },
     long: {
         backgroundColor: '#397097',
@@ -29,7 +43,12 @@ const colors = {
         switchColor: '#397097',
         pomodoroButtonColor: 'transparent',
         shortBreakButtonColor: 'transparent',
-        longBreakButtonColor: '#466e8d'
+        longBreakButtonColor: '#466e8d',
+        addTaskBtnBackground: '#34688c',
+        addTaskBtnBorder: '#7d9bb3',
+        addTaskBtnText: '#bacad7',
+        addTaskLine: '#b7c8d7',
+        addTaskBtnSetting: '#638caa' 
     }
 };
 
@@ -77,33 +96,45 @@ function pauseTimer() {
     clearInterval(timer);
 }
 
-function resetTimer() {
-    timeInSeconds = pomodoroTime;
-    updateTimerDisplay(pomodoroTime);
-}
-
-function startTimerWithColor(time, status) {
-    resetTimer();
+function resetTimer(time, status) {
+    timeInSeconds = time;
+    updateTimerDisplay(time);
+    startButton.innerHTML = 'START';
+    pauseTimer();
     applyColors(
         colors[status].backgroundColor,
         colors[status].pomodoroBackgroundColor,
         colors[status].switchColor,
         colors[status].pomodoroButtonColor,
         colors[status].shortBreakButtonColor,
-        colors[status].longBreakButtonColor
+        colors[status].longBreakButtonColor,
+        colors[status].addTaskBtnBackground,
+        colors[status].addTaskBtnBorder,
+        colors[status].addTaskBtnText,
+        colors[status].addTaskLine,
+        colors[status].addTaskBtnSetting,
     );
+}
+
+function startTimerWithColor(time, status) {
+    resetTimer(time, status);
     timeInSeconds = time;
     updateTimerDisplay(time);
     statusOfTimer = status;
 }
 
-function applyColors(backgroundColor, pomodoroBackgroundColor, switchColor, pomodoroButtonColor, shortBreakButtonColor, longBreakButtonColor) {
+function applyColors(backgroundColor, pomodoroBackgroundColor, switchColor, pomodoroButtonColor, shortBreakButtonColor, longBreakButtonColor, addTaskBtnBackground, addTaskBtnBorder, addTaskBtnText, addTaskLine, addTaskBtnSetting) {
     document.body.style.backgroundColor = backgroundColor;
     document.querySelector('.pomodoro').style.backgroundColor = pomodoroBackgroundColor;
     document.querySelector('.switch').style.color = switchColor;
     pomodoroButton.style.backgroundColor = pomodoroButtonColor;
     shortBreakButton.style.backgroundColor = shortBreakButtonColor;
     longBreakButton.style.backgroundColor = longBreakButtonColor;
+    addTaskBtn.style.backgroundColor = addTaskBtnBackground;
+    addTaskBtn.style.borderColor = addTaskBtnBorder;
+    addTaskBtn.style.color = addTaskBtnText;
+    document.querySelector('.tasks-title').style.borderColor = addTaskLine;
+    document.querySelector('.tasks-btn').style.backgroundColor = addTaskBtnSetting;
 }
 
 function startShortBreak() {
@@ -146,6 +177,18 @@ longBreakButton.addEventListener('click', function() {
     startButton.innerHTML = 'START';
     pauseTimer();
     startTimerWithColor(longBreakTime, 'long');
+});
+
+resetButton.addEventListener('click', function() {
+    startButton.innerHTML = 'START';
+    pauseTimer();
+    if (statusOfTimer === 'pomodoro') {
+        resetTimer(pomodoroTime, 'pomodoro');
+    } else if (statusOfTimer === 'short') {
+        resetTimer(shortBreakTime, 'short');
+    } else if (statusOfTimer === 'long') {
+        resetTimer(longBreakTime, 'long');
+    }
 });
 
 window.addEventListener("DOMContentLoaded", () => {
