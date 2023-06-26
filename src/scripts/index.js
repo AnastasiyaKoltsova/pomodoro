@@ -85,7 +85,7 @@ function startTimer() {
                 statusOfTimer = 'pomodoro';
             }
         }
-    }, 10);
+    }, 1000);
 }
 
 function updateTimerDisplay(time) {
